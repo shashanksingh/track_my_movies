@@ -8,9 +8,9 @@ TEMPLATE_DEBUG = DEBUG
 DATABASE_ENGINE   = 'django.db.backends.mysql'
 DATABASE_HOST = ''
 DATABASE_PORT = ''
-DATABASE_NAME = 'trackmymovies'
+DATABASE_NAME = 'staging'
 DATABASE_USER = 'root'
-DATABASE_PASSWORD = 'i am n3m35i5'
+DATABASE_PASSWORD = 'never1try'
 
 DATABASES = {
     'default': {
