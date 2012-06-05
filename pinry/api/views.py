@@ -22,8 +22,8 @@ def pins_recent(request, page=1):
     for pin in pins:
         recent_pins.append({
             'id': pin.id,
-            'thumbnail': pin.Movie.thumbnail.url,
-            'description': pin.Movie.description,
+            'thumbnail': pin.movie.thumbnail.url,
+            'description': pin.movie.description,
         })
 
     return HttpResponse(simplejson.dumps(recent_pins), mimetype="application/json")
