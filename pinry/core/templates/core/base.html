@@ -1,0 +1,90 @@
+{% load new_pin %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{{APP_NAME}} - {% block title %}{% endblock %}</title>
+
+        {% if debug %}
+            <link rel="stylesheet" href="/static/vendor/bootstrap/2.0.3/css/bootstrap.css">
+            <link rel="stylesheet" href="/static/vendor/fancybox/2.0.6/jquery.fancybox.css">
+        {% else %}
+            <link rel="stylesheet" href="/static/vendor/bootstrap/2.0.3/css/bootstrap.min.css">
+            <link rel="stylesheet" href="/static/vendor/fancybox/2.0.6/jquery.fancybox.css">
+        {% endif %}
+
+	{% block head %}{% endblock %}
+
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Monoton">
+
+        <link rel="stylesheet" href="/static/core/css/pinry.css">
+      <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', '{{GOOGLE_ANALYTICS_CODE}}']);
+  _gaq.push(['_setDomainName', '{{DOMAIN_NAME}}']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+    </head>
+    <body>
+        {% block navbar %}
+            <div class="navbar navbar-fixed-top">
+                <div class="navbar-inner">
+		
+		   <a href={{BRANDING_LINK}} class="branding" ><img src={{BRANDING_LOGO}}></img></a>
+                   <a href="{% url core:home %}" class="branding" >{{APP_NAME}}</a>
+
+                   <ul class="nav pull-right">
+			<li>{% block top-right-menu-one%}<a href="http://www.getthelook.in/goodies">What's This?</a>{% endblock %}</li>
+			<li>{% block top-right-menu-two%}<a href="#"  onClick="window.location.reload()" >Refresh</a>{% endblock %}</li>
+                    {% if user.is_authenticated %}
+                        <li><a href="#new-pin" data-toggle="modal">New Pin</a></li>
+                        <li><a href="{% url core:logout %}">Logout</a></li>
+                    {% else %}
+                        <li><a href="{% url core:login %}">Login</a></li>
+                        <li><a href="{% url core:register %}">Register</a></li>
+                    {% endif %}
+                    </ul>
+                 </div>
+            </div>
+        {% endblock %}
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        {% block yield %}{% endblock %}
+
+        {% new_pin %}
+
+        {% if debug %}
+            <script src="/static/vendor/jquery/1.7.2/jquery.js"></script>
+            <script src="/static/vendor/bootstrap/2.0.3/js/bootstrap.js"></script>
+            <script src="/static/vendor/wookmark/0.5/jquery.wookmark.js"></script>
+            <script src="/static/vendor/fancybox/2.0.6/jquery.fancybox.js"></script>
+            <script src="/static/vendor/imagesloaded/2.0.1/jquery.imagesloaded.js"></script>
+        {% else %}
+            <script src="/static/vendor/jquery/1.7.2/jquery.min.js"></script>
+            <script src="/static/vendor/bootstrap/2.0.3/js/bootstrap.min.js"></script>
+            <script src="/static/vendor/wookmark/0.5/jquery.wookmark.min.js"></script>
+            <script src="/static/vendor/fancybox/2.0.6/jquery.fancybox.pack.js"></script>
+            <script src="/static/vendor/imagesloaded/2.0.1/jquery.imagesloaded.min.js"></script>
+        {% endif %}
+
+        {% block load_pinry_js %}<script src="/static/core/js/pinry.js"></script>{% endblock %}
+        <script src="/static/core/js/messages.js"></script>
+
+	{% block endOfBody %} {% endblock %}
+
+    </body>
+</html>
