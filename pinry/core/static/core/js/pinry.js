@@ -66,8 +66,8 @@ $(window).ready(function () {
               html += '<p>'+image.description+'</p><br/>';
         /*      if (image.blog_url != "" || image.blog_url != null ) html += '<a class="btn" href="'+image.blog_url+'">Read</a> &nbsp;'
               if (image.buy_url != "" || image.buy_url != null ) html += '<a class="btn" href="'+image.buy_url+'">Buy</a> &nbsp;'
-              if (image.similar_items == true ) html += '<a class="btn" href="/ecommerce/similar-items/?pin_id='+image.id+'">Similar</a>'
-              if (image.user_name != "" ) html += '<p align="right" class="info">'+image.user_name+'</p>'*/
+              if (image.similar_items == true ) html += '<a class="btn" href="/ecommerce/similar-items/?pin_id='+image.id+'">Similar</a>'*/
+              if (image.user_name != "" ) html += '<p align="right" class="info">'+image.username+'</p>'
           html += '</div>';
         }
         

@@ -37,6 +37,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.static",
     "django.contrib.messages.context_processors.messages",
     "pinry.settings.settings_context_processor.branding",
+    "django_facebook.context_processors.facebook", 
 )
 
 ROOT_URLCONF = 'pinry.urls'
@@ -51,6 +52,13 @@ MESSAGE_TAGS = {
 }
 API_LIMIT_PER_PAGE = 20
 
+#start django-registration
+ACCOUNT_ACTIVATION_DAYS = 2
+#end
+
+#start userregistration
+AUTH_PROFILE_MODULE = 'userprofile.UserProfile
+#end
 INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -63,5 +71,11 @@ INSTALLED_APPS = (
     'pinry.pins',
     'pinry.api',
     'django.contrib.admin',
+    'registration',
+    'django_facebook',
 #    'pinry.ecommerce',
+)
+
+AUTHENTICATION_BACKENDS = (
+    'django_facebook.auth_backends.FacebookBackend',
 )

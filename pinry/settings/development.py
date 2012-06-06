@@ -8,7 +8,7 @@ TEMPLATE_DEBUG = DEBUG
 DATABASE_ENGINE   = 'django.db.backends.mysql'
 DATABASE_HOST = ''
 DATABASE_PORT = ''
-DATABASE_NAME = 'staging'
+DATABASE_NAME = 'tmm'
 DATABASE_USER = 'root'
 DATABASE_PASSWORD = 'never1try'
 
