@@ -40,8 +40,19 @@
 		   <a href={{BRANDING_LINK}} class="branding" ><img src={{BRANDING_LOGO}}></img></a>
                    <a href="{% url core:home %}" class="branding" >{{APP_NAME}}</a>
 
-                   <ul class="nav pull-right">
-			<li>{% block top-right-menu-one%}<a href="http://www.getthelook.in/goodies">Discover</a>{% endblock %}</li>
+                   <ul class="nav pull-right nav-pills">
+			<li class="dropdown" id="menu1"> 
+			{% block top-right-menu-one%}
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#menu1">Discover</a>
+				<ul class="dropdown-menu">
+					<li><a href="/movies/">Movies</a></li>
+					<li><a href="/users/">Users</a></li>
+					<li><a href="/search/">Search</a></li>
+					<li class="divider"></li>
+					<!--<li><a href="">Review</a></li>-->
+				</ul>
+	`		{% endblock %}
+			</li>
 			<li>{% block top-right-menu-two%}<a href="#"  onClick="window.location.reload()" >Refresh</a>{% endblock %}</li>
                     {% if user.is_authenticated %}
                         <li><a href="#new-pin" data-toggle="modal">New Pin</a></li>
@@ -72,16 +83,16 @@
             <script src="/static/vendor/wookmark/0.5/jquery.wookmark.js"></script>
             <script src="/static/vendor/fancybox/2.0.6/jquery.fancybox.js"></script>
             <script src="/static/vendor/imagesloaded/2.0.1/jquery.imagesloaded.js"></script>
-            <script src="/media/theme/js/bootstrap-dropdown.js"></script>
+            <script src="/static/vendor/bootstrap/2.0.3/js/bootstrap-dropdown.js"></script>
         {% else %}
             <script src="/static/vendor/jquery/1.7.2/jquery.min.js"></script>
             <script src="/static/vendor/bootstrap/2.0.3/js/bootstrap.min.js"></script>
             <script src="/static/vendor/wookmark/0.5/jquery.wookmark.min.js"></script>
             <script src="/static/vendor/fancybox/2.0.6/jquery.fancybox.pack.js"></script>
             <script src="/static/vendor/imagesloaded/2.0.1/jquery.imagesloaded.min.js"></script>
-            <script src="/media/theme/js/bootstrap-dropdown.js"></script>
+            <script src="/static/vendor/bootstrap/2.0.3/js/bootstrap-dropdown.js"></script>
         {% endif %}
-
+	    <script> $('.dropdown-toggle').dropdown() </script>
         {% block load_pinry_js %}<script src="/static/core/js/pinry.js"></script>{% endblock %}
         <script src="/static/core/js/messages.js"></script>
 
