@@ -5,7 +5,7 @@ from .models import Pin,Movies
 
 class PinForm(forms.ModelForm):
 #    Movie = forms.ModelMultipleChoiceField(queryset=Movies.objects.all())#show all options at once
-    Movie = forms.ModelChoiceField(queryset=Movies.objects.all())#show a drop down
+#    Movie = forms.ModelChoiceField(queryset=Movies.objects.all())#show a drop down
 
     def clean_url(self):
         data = self.cleaned_data['url']
@@ -37,6 +37,17 @@ class PinForm(forms.ModelForm):
                 raise forms.ValidationError("URL has already been pinned!")
             except Pin.DoesNotExist:
                 return data
+
+    def __init__(self, *args, **kwargs):
+        self._user = kwargs.pop('user',None)
+        super(PinForm, self).__init__(*args, **kwargs)
+      
+    def save(self, commit=True):
+        inst = super(PinForm, self).save(commit=False)
+        inst.author = self._user
+        if commit:
+            inst.save()
+        return inst
 
     class Meta:
         model = Pin

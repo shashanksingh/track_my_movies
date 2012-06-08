@@ -47,4 +47,5 @@ class Pin(models.Model):
 
     def __unicode__(self):
         return self.movie.name
+ 
 

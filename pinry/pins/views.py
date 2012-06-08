@@ -12,7 +12,7 @@ def recent_pins(request):
 
 def new_pin(request):
     if request.method == 'POST':
-        form = PinForm(request.POST)
+        form = PinForm(request.POST, user=request.user)
         if form.is_valid():
             form.save()
             messages.success(request, 'New pin successfully added.')
