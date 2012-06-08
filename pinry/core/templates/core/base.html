@@ -42,7 +42,7 @@
                    <a href="{% url core:home %}" class="branding" >{{APP_NAME}}</a>
 
                    <ul class="nav pull-right">
-			<li>{% block top-right-menu-one%}<a href="http://www.getthelook.in/goodies">What's This?</a>{% endblock %}</li>
+			<!--<li>{% block top-right-menu-one%}<a href="http://www.getthelook.in/goodies">What's This?</a>{% endblock %}</li>-->
 			<li>{% block top-right-menu-two%}<a href="#"  onClick="window.location.reload()" >Refresh</a>{% endblock %}</li>
                     {% if user.is_authenticated %}
                         <li><a href="#new-pin" data-toggle="modal">New Pin</a></li>

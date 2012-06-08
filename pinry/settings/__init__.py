@@ -57,7 +57,7 @@ ACCOUNT_ACTIVATION_DAYS = 2
 #end
 
 #start userregistration
-AUTH_PROFILE_MODULE = 'userprofile.UserProfile
+AUTH_PROFILE_MODULE = 'userprofile.UserProfile'
 #end
 INSTALLED_APPS = (
     'django.contrib.auth',
@@ -72,10 +72,11 @@ INSTALLED_APPS = (
     'pinry.api',
     'django.contrib.admin',
     'registration',
-    'django_facebook',
+#    'pinry.userprofile',
+#    'django_facebook',
 #    'pinry.ecommerce',
 )
 
-AUTHENTICATION_BACKENDS = (
-    'django_facebook.auth_backends.FacebookBackend',
-)
+#AUTHENTICATION_BACKENDS = (
+#    'django_facebook.auth_backends.FacebookBackend',
+#)
