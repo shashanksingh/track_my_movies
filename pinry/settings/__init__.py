@@ -37,7 +37,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.static",
     "django.contrib.messages.context_processors.messages",
     "pinry.settings.settings_context_processor.branding",
-    "django_facebook.context_processors.facebook", 
+#    "django_facebook.context_processors.facebook", 
 )
 
 ROOT_URLCONF = 'pinry.urls'
@@ -71,7 +71,7 @@ INSTALLED_APPS = (
     'pinry.pins',
     'pinry.api',
     'django.contrib.admin',
-    'registration',
+#    'registration',
 #    'pinry.userprofile',
 #    'django_facebook',
 #    'pinry.ecommerce',
