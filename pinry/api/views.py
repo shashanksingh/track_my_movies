@@ -23,6 +23,7 @@ def pins_recent(request, page=1):
         recent_pins.append({
             'id': pin.id,
             'thumbnail': pin.movie.thumbnail.url,
+            'original': pin.movie.thumbnail.url,
             'description': pin.movie.description,
             'username' : pin.author.username,
         })
